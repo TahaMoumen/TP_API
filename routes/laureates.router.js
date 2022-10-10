@@ -1,8 +1,8 @@
-const prizesController = require("../controllers/prizes.controller");
+const laureatesController = require("../controllers/laureates.controller");
 var express = require("express");
 var router = express.Router();
 
-router.get("/:userId?", prizesController.getAll);
+router.get("/:userId?", laureatesController.getAll);
 /**
  * @swagger
  * /prizes/{userId}:

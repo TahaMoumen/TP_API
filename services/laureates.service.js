@@ -22,8 +22,13 @@ const getById = (id, callback) => {
     try {
         const dataBuffer = fs.readFileSync('prize.json')
         const dataJSON = dataBuffer.toString()
-        // console.log( JSON.parse(dataJSON).prizes.years=2021);
-        return callback(null, JSON.parse(dataJSON).prizes);
+        prizes = JSON.parse(dataJSON).prizes
+        laureates = []
+        prizes.forEach(function (element) {
+            laureates.push(element.laureates)
+        });
+        // console.log(laureates.length);
+        return callback(null, laureates);
     } catch (e) {
         return callback([])
     }

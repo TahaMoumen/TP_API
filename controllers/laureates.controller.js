@@ -1,4 +1,4 @@
-const prizesService = require("../services/prizes.service")
+const laureatesService = require("../services/laureates.service")
 const validator = require("validator")
 
 // exports.getAll = (req, res) => {
@@ -22,7 +22,7 @@ exports.getAll = (req, res) => {
     userId = typeof userId === "undefined" ? "" : userId
     // console.log(req.params.userId);
     if (validator.isEmpty(userId) || userId == "{userId}" || userId == "undefined") {
-        prizesService.getLaureates((error, results) => {
+        laureatesService.getLaureates((error, results) => {
             if (error) {
                 return res.status(500).json({
                     success: 0,
@@ -37,7 +37,7 @@ exports.getAll = (req, res) => {
         })
     } 
     else if (validator.isInt(userId)) {
-        prizesService.getById(userId, (error, results) => {
+        laureatesService.getById(userId, (error, results) => {
             if (error) {
                 return res.status(500).json({
                     success: 0,
