@@ -5,9 +5,9 @@ var router = express.Router();
 router.get("/:userId?", laureatesController.getAll);
 /**
  * @swagger
- * /prizes/{userId}:
+ * /laureates/{userId}:
  *   get:
- *      description: All prizes
+ *      description: All laureates
  *      tags:
  *          - users
  *      parameters:

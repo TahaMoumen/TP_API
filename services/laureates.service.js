@@ -8,12 +8,17 @@ const getLaureates = (callback) => {
         prizes = JSON.parse(dataJSON).prizes
         laureates = []
         prizes.forEach(function (element) {
-            laureates.push(element.laureates)
+            for (let i in element.laureates){
+                laureates.push({
+                    id: element.laureates[i].id,
+                    firstname: element.laureates[i].firstname,
+                    surname: element.laureates[i].surname,
+                })
+            }
         });
-        // console.log(laureates.length);
         return callback(null, laureates);
     } catch (e) {
-        return callback([])
+        callback(null, e)
     }
 }
 
