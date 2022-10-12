@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path');
-const prizesRoute = require("./routes/laureates.router");
+const prizesRoute = require("./routes/prizes.router");
+const prizesf5Route = require("./routes/prizesf5.router");
 const laureatesRoute = require("./routes/laureates.router");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
@@ -43,9 +44,11 @@ const swaggerDocs = swaggerJsdoc(swaggerOption);
 
 
 
-app.get('/', function (req, res) {res.render('home', { title: 'Home' }); });
+// app.get('/', function (req, res) {res.render('./views/home.hbs', { title: 'Home' }); });
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use("/laureates", laureatesRoute);
+app.use("/prizes", prizesRoute);
+app.use("/prizes/f5", prizesf5Route);
 
 
 
