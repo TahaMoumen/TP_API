@@ -1,0 +1,41 @@
+
+<div class="row" style="display: table;">
+    <div class="column">
+        <form name="formulaire">
+            <select name="category" id="Select" onChange="list()">
+                <option value="0">Select a category</option>
+            </select>
+        </form>
+    </div>
+    <div class="column">
+        <div >
+            <label for="year">Year</label>
+            <input type="year" id="Year" name="Year">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{{! Path: views\partials\formulaire.hbs }}
+<div class="formulaire" style="text-align: center;">
+    <form action="/ma-page-de-traitement" method="post">
+        <div>
+            <label for="firstname">First name :</label>
+            <input type="text" id="Firstname" name="student_Fistname">
+        </div>
+        <div>
+            <label for="surname">Surname:</label>
+            <input type="text" id="Surname" name="student_Surname">
+        </div>
+        <div>
+            <label for="motivation">Motivation :</label>
+            <textarea id="Motivation" name="student_Motivation"></textarea>
+        </div>
+    </form>
+
+    <div class="button">
+        <button type="submit" onclick="add()">Submit</button>
+</div>
